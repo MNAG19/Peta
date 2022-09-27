@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 //        mMap.setMyLocationEnabled(true);
-        LatLng latLngUser = new LatLng(-2.983815, 104.751879);
+        LatLng latLngUser = new LatLng(-2.961791, 104.739752);
         mMap.addMarker(new MarkerOptions().position(latLngUser).title("Lokasi Saya"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngUser, 19 ));
     }
