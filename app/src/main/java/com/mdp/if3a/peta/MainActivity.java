@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -50,6 +51,38 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
 
         mapFragment.getMapAsync(this);
+
+        binding.fabRestaurant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.clear();
+
+                for(int i =0; i < restaurantList.size(); i++){
+                    mMap.addMarker(new MarkerOptions()
+                            .position(restaurantList.get(i).getLatLng())
+                            .title(restaurantList.get(i).getNama()))
+                            .showInfoWindow();
+                }
+
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(restaurantList.get(4).getLatLng(), 17));
+            }
+        });
+
+        binding.fabHospital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.clear();
+
+                for(int i =0; i < hospitalList.size(); i++){
+                    mMap.addMarker(new MarkerOptions()
+                                    .position(hospitalList.get(i).getLatLng())
+                                    .title(hospitalList.get(i).getNama()))
+                                    .showInfoWindow();
+                }
+
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(restaurantList.get(4).getLatLng(), 17));
+            }
+        });
 
     }
 
