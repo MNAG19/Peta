@@ -10,6 +10,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mdp.if3a.peta.databinding.ActivityMainBinding;
@@ -76,11 +77,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 for(int i =0; i < hospitalList.size(); i++){
                     mMap.addMarker(new MarkerOptions()
                                     .position(hospitalList.get(i).getLatLng())
-                                    .title(hospitalList.get(i).getNama()))
+                                    .title(hospitalList.get(i).getNama())
+                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
                                     .showInfoWindow();
                 }
 
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(restaurantList.get(4).getLatLng(), 17));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(restaurantList.get(4).getLatLng(), 15));
             }
         });
 
