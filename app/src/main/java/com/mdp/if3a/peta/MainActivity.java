@@ -116,6 +116,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             .showInfoWindow();
 
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngLast, 17));
+
+                    mMap.addCircle(new CircleOptions()
+                        .center(latLngLast)
+                        .radius(100)
+                        .strokeColor(Color.TRANSPARENT)
+                        .fillColor(R.color.purple_500));
                 }
             }
         });
@@ -160,14 +166,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
 //        mMap.setMyLocationEnabled(true);
-        LatLng latLngUser = new LatLng(-2.961791, 104.739752);
-        mMap.addMarker(new MarkerOptions().position(latLngUser).title("Lokasi Saya"));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngUser, 19 ));
-
-        mMap.addCircle(new CircleOptions()
-                .center(latLngUser)
-                .radius(100)
-                .strokeColor(Color.TRANSPARENT)
-                .fillColor(R.color.teal_200));
+//        LatLng latLngUser = new LatLng(-2.961791, 104.739752);
+//        mMap.addMarker(new MarkerOptions().position(latLngUser).title("Lokasi Saya"));
+//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngUser, 19 ));
+//
+//        mMap.addCircle(new CircleOptions()
+//                .center(latLngUser)
+//                .radius(100)
+//                .strokeColor(Color.TRANSPARENT)
+//                .fillColor(R.color.teal_200));
     }
 }
