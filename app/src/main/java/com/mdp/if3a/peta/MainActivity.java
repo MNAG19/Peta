@@ -3,6 +3,7 @@ package com.mdp.if3a.peta;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,6 +12,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mdp.if3a.peta.databinding.ActivityMainBinding;
@@ -61,7 +63,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 for(int i =0; i < restaurantList.size(); i++){
                     mMap.addMarker(new MarkerOptions()
                             .position(restaurantList.get(i).getLatLng())
-                            .title(restaurantList.get(i).getNama()))
+                            .title(restaurantList.get(i).getNama())
+                                    .snippet("Besar, Puas, Ladas 🤤🤤🤤"))
                             .showInfoWindow();
                 }
 
@@ -95,5 +98,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng latLngUser = new LatLng(-2.961791, 104.739752);
         mMap.addMarker(new MarkerOptions().position(latLngUser).title("Lokasi Saya"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngUser, 19 ));
+
+        mMap.addCircle(new CircleOptions()
+                .center(latLngUser)
+                .radius(100)
+                .strokeColor(Color.TRANSPARENT)
+                .fillColor(R.color.teal_200));
     }
 }
